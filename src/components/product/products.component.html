@@ -1,0 +1,49 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col bg-dark text-white">
+      <a class="navbar-brand">SPORTS STORE</a>
+    </div>
+  </div>
+  <div class="row text-white">
+    <div class="col-3 bg-light text-white p-2">
+      <button class="btn btn-light btn-block" (click)="changeCategory()">
+        Strona główna
+      </button>
+      <button *ngFor="let category of categories" class="btn btn-light btn-block" [class.active]="category == selectedCategory"
+        (click)="changeCategory(category)">
+        {{ category }}
+      </button>
+    </div>
+    <div class="col-9 bg-light p-2">
+      <div *ngFor="let product of products" class="card m-1 p-1 bg-light text-dark">
+        <h4>
+          {{ product.name }}
+          <span class="badge badge-pill badge-primary float-right">
+            {{ product.price | currency:"PLN ": "symbol":"2.2-2" }}
+          </span>
+        </h4>
+        <div class="card-text bg-light p-1">
+          {{ product.description }}
+        </div>
+        <span class="text-left" style="font-size:x-small">
+          Kod produktu: {{ product.id }}
+        </span>
+      </div>
+      <div class="form-inline float-left text-dark mr-1">
+        <div class="form-inline float-left mr-1">
+          Pozycji na stronie:
+          <select class="form-control ml-1" [value]="maxPageSize" (change)="changePageSize($event.target.value)">
+            <option value="2">2</option>
+            <option value="4">4</option>
+            <option value="6">6</option>
+            <option value="8">8</option>
+          </select>
+        </div>
+      </div>
+      <div class="btn-group float-right">
+        <button *counter="let page of pageCount" class="btn btn-light ml-1" (click)="changePage(page)" [class.active]="page == selectedPage">
+          {{ page }}</button>
+      </div>
+    </div>
+  </div>
+</div>
