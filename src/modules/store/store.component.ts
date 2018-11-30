@@ -1,18 +1,21 @@
 import { Component } from '@angular/core';
 import { ProductRepository } from 'src/dal/product.repository';
-import { Product } from 'src/model/product/product.model';
-import { PaginateComponent } from 'src/components/base/paginate.component';
+import { Router } from '@angular/router';
+import { Cart } from './models/cart/cart.model';
+import { Product } from './models/product/product.model';
+import { PaginateComponent } from './components/base/paginate.component';
 
 @Component({
-  // tslint:disable-next-line:component-selector
-  selector: 'products',
-  templateUrl: 'products.component.html'
+  selector: 'store',
+  templateUrl: 'store.component.html'
 })
-export class AppProductsComponent extends PaginateComponent {
+export class StoreComponent extends PaginateComponent {
 
   public selectedCategory: string = null;
 
-  constructor(private repository: ProductRepository) {
+  constructor(private repository: ProductRepository,
+    private cart: Cart,
+    private router: Router) {
     super();
   }
 
@@ -37,5 +40,8 @@ export class AppProductsComponent extends PaginateComponent {
     this.selectedPage = 1;
   }
 
-
+  addProductToCart(product: Product) {
+    this.cart.addItem(product);
+    this.router.navigateByUrl("/cart");
+  }
 }

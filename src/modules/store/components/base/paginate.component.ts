@@ -1,5 +1,3 @@
-import { Component } from '@angular/core';
-
 export class PaginateComponent {
   protected maxPageSize = 8;
   protected selectedPage;

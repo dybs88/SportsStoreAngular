@@ -1,0 +1,18 @@
+<div>
+  <small>
+    Twój koszyk:
+    <span *ngIf="cart.itemCount > 0">
+      {{ cart.itemCount }}
+      <span *ngIf="cart.itemCount === 1">Przedmiot</span>
+      <span *ngIf="cart.itemCount > 1 && cart.itemCount < 5">Przedmioty</span>
+      <span *ngIf="cart.itemCount >= 5">Przedmiotów</span>
+      {{ cart.cartPrice | currency: "PLN " : "symbol":"2.2-2" }}
+    </span>
+    <span *ngIf="cart.itemCount === 0">
+      (pusto)
+    </span>
+  </small>
+  <button class="btn btn-sm btn-dark text-white" [disabled]="cart.itemCount === 0" routerLink="/cart" >
+    <i class="fa fa-shopping-cart"></i>
+  </button>
+</div>

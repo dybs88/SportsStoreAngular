@@ -1,9 +1,5 @@
 <div class="container-fluid">
-  <div class="row">
-    <div class="col bg-dark text-white">
-      <a class="navbar-brand">SPORTS STORE</a>
-    </div>
-  </div>
+  <ss-navbar></ss-navbar>
   <div class="row text-white">
     <div class="col-3 bg-light text-white p-2">
       <button class="btn btn-light btn-block" (click)="changeCategory()">
@@ -24,6 +20,7 @@
         </h4>
         <div class="card-text bg-light p-1">
           {{ product.description }}
+          <button class="btn btn-success btn-sm float-right" (click)="addProductToCart(product)">Dodaj do koszyka</button>
         </div>
         <span class="text-left" style="font-size:x-small">
           Kod produktu: {{ product.id }}
