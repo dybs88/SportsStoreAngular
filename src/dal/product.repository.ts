@@ -28,6 +28,21 @@ export class ProductRepository {
     return this.products.find(p => p.id === id);
   }
 
+  saveProduct(product: Product) {
+    if (product.id === null || product.id === 0) {
+      this.dataSource.saveProduct(product)
+        .subscribe(p => this.products.push(p));
+    } else {
+      this.dataSource.updateProduct(product)
+        .subscribe(p => this.products.splice(this.products.findIndex(i => i.id === product.id), 1, p));
+    }
+  }
+
+  deleteProduct(id: number) {
+    this.dataSource.deleteProduct(id)
+      .subscribe(p => this.products.splice(this.products.findIndex(i => i.id === id), 1));
+  }
+
   getCategories(): string[] {
     return this.categories;
   }

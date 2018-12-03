@@ -4,9 +4,10 @@ import { RouterModule } from "@angular/router";
 import { BrowserModule } from "@angular/platform-browser";
 import { StoreModelModule } from "../../models/store.model.module";
 import { NavbarComponent } from "./navbar.component";
+import { AdminModule } from "src/modules/admin/admin.module";
 
 @NgModule({
-  imports: [StoreModelModule, RouterModule, BrowserModule],
+  imports: [StoreModelModule, RouterModule, BrowserModule, AdminModule],
   declarations: [NavbarComponent, CartSummaryComponent],
   exports: [NavbarComponent]
 })
