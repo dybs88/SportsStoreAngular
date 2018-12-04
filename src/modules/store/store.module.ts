@@ -7,8 +7,8 @@ import { StoreComponent } from './store.component';
 import { CounterDirective } from 'src/modules/store/infrastructure/counter.directive';
 import { StoreModelModule } from './models/store.model.module';
 import { OrderComponent } from './components/order/order.component';
-import { NavbarModule } from './components/navbar/navbar.module';
 import { CartDetailComponent } from './components/cart/cartDetail.component';
+import { NavbarModule } from '../navbar/navbar.module';
 
 
 @NgModule({

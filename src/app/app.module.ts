@@ -20,6 +20,7 @@ import { StoreFirstGuard } from './storeFirst.guard';
       { path: "store", component: StoreComponent, canActivate: [StoreFirstGuard] },
       { path: "cart", component: CartDetailComponent, canActivate: [StoreFirstGuard] },
       { path: "order", component: OrderComponent, canActivate: [StoreFirstGuard] },
+      { path: "auth", loadChildren: "src/modules/authorization/auth.module#AuthorizationModule", canActivate: [StoreFirstGuard] },
       { path: "admin", loadChildren: "src/modules/admin/admin.module#AdminModule", canActivate: [StoreFirstGuard] },
       { path: "**", redirectTo: "/store" }
     ])

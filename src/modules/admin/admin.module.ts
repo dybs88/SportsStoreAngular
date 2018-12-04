@@ -1,23 +1,21 @@
 import { RouterModule } from "@angular/router";
-import { AuthComponent } from "./components/auth/auth.component";
 import { AdminComponent } from "./components/admin/admin.component";
 import { NgModule } from "@angular/core";
-import { CommonModule } from "@angular/common";
 import { FormsModule } from "@angular/forms";
 import { AuthGuard } from "./infrastructure/auth.guard";
-import { QuickAuthComponent } from "./components/quickauth/quickauth.component";
+import { EditProductComponent } from "./components/productComponents/editProduct/editProduct.component";
+import { ProductTableComponent } from "./components/productComponents/productTable/productTable.component";
+import { OrderTableComponent } from "./components/orderComponents/orderTable/orderTable.component";
+import { NavbarModule } from "../navbar/navbar.module";
 
 let routing = RouterModule.forChild([
-  { path: "auth", component: AuthComponent },
-  { path: "admin", component: AdminComponent, canActivate: [AuthGuard] },
-  // { path: "**", redirectTo: "auth" }
+  { path: "main", component: AdminComponent, canActivate: [AuthGuard] },
+  { path: "**", redirectTo: "/auth" }
 ]);
 
 @NgModule({
-  imports: [CommonModule, FormsModule, routing],
-  providers: [AuthGuard],
-  declarations: [AuthComponent, AdminComponent, QuickAuthComponent],
-  exports: [QuickAuthComponent]
+  imports: [FormsModule, routing, NavbarModule],
+  declarations: [AdminComponent, EditProductComponent, ProductTableComponent, OrderTableComponent]
 })
 
 export class AdminModule { }
