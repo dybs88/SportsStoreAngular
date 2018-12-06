@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 
@@ -11,8 +11,9 @@ import { CartDetailComponent } from './components/cart/cartDetail.component';
 import { NavbarModule } from '../navbar/navbar.module';
 
 
+
 @NgModule({
-  imports: [StoreModelModule, BrowserModule, FormsModule, RouterModule, NavbarModule],
+  imports: [StoreModelModule, CommonModule, FormsModule, RouterModule, NavbarModule],
   declarations: [StoreComponent, CounterDirective, OrderComponent, CartDetailComponent],
   exports: [StoreComponent, OrderComponent, CartDetailComponent]
 })

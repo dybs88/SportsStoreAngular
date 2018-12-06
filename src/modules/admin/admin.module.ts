@@ -9,7 +9,9 @@ import { OrderTableComponent } from "./components/orderComponents/orderTable/ord
 import { NavbarModule } from "../navbar/navbar.module";
 
 let routing = RouterModule.forChild([
-  { path: "main", component: AdminComponent, canActivate: [AuthGuard] },
+  { path: "main", component: AdminComponent },
+  { path: "products", component: ProductTableComponent },
+  { path: "orders", component: OrderTableComponent },
   { path: "**", redirectTo: "/auth" }
 ]);
 

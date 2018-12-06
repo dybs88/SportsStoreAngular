@@ -1,6 +1,6 @@
 import { Component } from "@angular/core";
 import { Router } from "@angular/router";
-import { AuthService } from "../../services/auth.service";
+import { AuthService } from "../../../../services/auth.service";
 import { NgForm } from "@angular/forms";
 
 @Component({
@@ -29,6 +29,6 @@ export class QuickAuthComponent {
   }
 
   get authenticated(): boolean {
-    return this.authService.autheticated;
+    return this.authService.authenticated;
   }
 }

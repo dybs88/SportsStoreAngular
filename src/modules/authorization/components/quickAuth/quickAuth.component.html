@@ -1,5 +1,5 @@
 <div class="form-inline" *ngIf="authenticated">
-  <button class="btn btn-primary m-1" routerLink="/admin">Profil</button>
+  <button class="btn btn-primary m-1" routerLink="/admin/main">Profil</button>
 </div>
 <div *ngIf="!authenticated">
   <form class="form-inline mt-1 mb-1" novalidate #form="ngForm" (ngSubmit)="authenticate(form)">

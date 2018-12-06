@@ -8,7 +8,9 @@ import { map } from "rxjs/operators";
 const PROTOCOL = "http";
 const PORT = "3500";
 
-@Injectable()
+@Injectable({
+  providedIn: "root"
+})
 export class RestDataSource {
   baseUrl: string;
   auth_token: string;
@@ -53,6 +55,7 @@ export class RestDataSource {
     return this.http.post<any>(this.baseUrl + "login", { name: user, password: pass })
       .pipe(map(response => {
         this.auth_token = response.success ? response.token : null;
+        console.log(`auth_token = ${this.auth_token}`);
         return response.success;
       }));
   }

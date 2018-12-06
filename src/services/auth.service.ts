@@ -10,7 +10,8 @@ export class AuthService {
     return this.dataSource.authenticate(username, pass);
   }
 
-  get autheticated(): boolean {
+  get authenticated(): boolean {
+    console.log(`authService - auth_token= ${this.dataSource.auth_token}`);
     return this.dataSource.auth_token != null;
   }
 
