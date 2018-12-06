@@ -2,7 +2,9 @@ import { Injectable } from '@angular/core';
 import { RestDataSource } from 'src/modules/store/models/rest.datasource';
 import { Product } from 'src/modules/store/models/product/product.model';
 
-@Injectable()
+@Injectable({
+  providedIn: "root"
+})
 export class ProductRepository {
   private products: Product[] = [];
   private categories: string[] = [];

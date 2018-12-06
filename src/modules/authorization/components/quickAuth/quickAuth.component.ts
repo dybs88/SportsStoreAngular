@@ -31,4 +31,9 @@ export class QuickAuthComponent {
   get authenticated(): boolean {
     return this.authService.authenticated;
   }
+
+  logout() {
+    this.authService.clear();
+    this.router.navigateByUrl("/");
+  }
 }

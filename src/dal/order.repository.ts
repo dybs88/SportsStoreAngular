@@ -3,7 +3,9 @@ import { RestDataSource } from "src/modules/store/models/rest.datasource";
 import { Observable } from "rxjs";
 import { Order } from "src/modules/store/models/order/order.model";
 
-@Injectable()
+@Injectable({
+  providedIn: "root"
+})
 export class OrderRepository {
   private orders: Order[] = [];
   private loaded: boolean = false;

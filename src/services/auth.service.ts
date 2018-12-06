@@ -11,7 +11,6 @@ export class AuthService {
   }
 
   get authenticated(): boolean {
-    console.log(`authService - auth_token= ${this.dataSource.auth_token}`);
     return this.dataSource.auth_token != null;
   }
 

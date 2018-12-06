@@ -8,7 +8,7 @@ import { Cart } from './cart/cart.model';
 
 @NgModule({
   imports: [HttpClientModule],
-  providers: [ProductRepository, Cart, Order, OrderRepository],
+  providers: [Cart, Order],
 })
 
 export class StoreModelModule { }

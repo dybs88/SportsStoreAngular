@@ -10,6 +10,8 @@ import { OrderComponent } from 'src/modules/store/components/order/order.compone
 import { StoreFirstGuard } from './storeFirst.guard';
 import { RestDataSource } from 'src/modules/store/models/rest.datasource';
 import { AuthService } from 'src/services/auth.service';
+import { ProductRepository } from 'src/dal/product.repository';
+import { OrderRepository } from 'src/dal/order.repository';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,7 @@ import { AuthService } from 'src/services/auth.service';
       { path: "**", redirectTo: "/store" }
     ])
   ],
-  providers: [StoreFirstGuard, RestDataSource, AuthService],
+  providers: [StoreFirstGuard, RestDataSource, AuthService, ProductRepository, OrderRepository],
   bootstrap: [AppComponent],
   schemas: [RouterModule]
 })
