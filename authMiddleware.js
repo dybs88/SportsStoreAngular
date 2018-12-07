@@ -23,11 +23,10 @@ module.exports = function (req, res, next) {
 
     res.end();
     return;
-  } else if ((((req.url.startsWith("/api/products") ||
-        req.url.startsWith("/products")) ||
-      (req.url.startsWith("/api/categories") ||
-        req.url.startsWith("/categories"))) && req.method != "GET") ||
-    ((req.url.startsWith("/api/orders") || req.url.startsWith("/orders")) && req.method != "POST")) {
+  } else if (((req.url.startsWith("/products") || req.url.startsWith("/categories")) && req.method != "GET") ||
+    ((req.url.startsWith("/orders")) && req.method != "POST")) {
+    next();
+    return;
     let token = req.headers["authorization"];
     if (token != null && token.startsWith("Bearer<")) {
       token = token.substring(7, token.length - 1);

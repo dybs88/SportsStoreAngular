@@ -12,8 +12,7 @@ export class ProductRepository {
   constructor(private dataSource: RestDataSource) {
     dataSource.getProducts().subscribe(data => {
       this.products = data;
-      this.categories = data.map(p => p.category)
-        .filter((c, index, array) => array.indexOf(c) === index).sort();
+      this.categories = Array.from(new Set(data.map(p => p.category)));
     });
   }
 
@@ -46,7 +45,7 @@ export class ProductRepository {
   }
 
   getCategories(): string[] {
-    return this.categories;
+    return this.categories = Array.from(new Set(this.products.map(p => p.category)));
   }
 
 }

@@ -9,7 +9,7 @@ import { PaginateComponent } from './components/base/paginate.component';
   selector: 'store',
   templateUrl: 'store.component.html'
 })
-export class StoreComponent extends PaginateComponent {
+export class StoreComponent extends PaginateComponent<Product> {
 
   public selectedCategory: string = null;
 

@@ -1,3 +1,51 @@
-<div>
-  Lista zamówień
+<div class="container-fluid">
+  <ss-navbar></ss-navbar>
+  <div class="row mt-1">
+    <div class="col-2">
+      <ss-adminmenu></ss-adminmenu>
+    </div>
+    <div class="col-10">
+      <table class="table table-bordered table-striped">
+        <thead>
+          <tr>
+            <th>Tymczasowo ID</th>
+            <th>Klienta</th>
+            <th colspan="3">Adres</th>
+            <th>Wartość</th>
+            <th>Czy wysłane?</th>
+            <th>Akcja</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let order of getOrders()">
+            <td>{{ order.id }}</td>
+            <td>{{ order.name }}</td>
+            <td>Ulica {{ order.address }} {{ order.city}}, {{ order.zipCode }}</td>
+            <td>
+              <!-- {{ order.cart.cartPrice | currency: "PLN ":"symbol":"2.2-2" }} -->
+            </td>
+            <td><span [class.fas fa-check]="order.shipped" [class.fas fa-times]="!order.shipped"></span></td>
+            <td>
+              <button class="btn btn-primary">Podgląd</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="form-group">
+        <div class="form-inline text-dark float-left mr-1">
+          Pozycji na stronie:
+          <select class="form-control ml-1" [value]="maxPageSize" (change)="changePageSize($event.target.value)">
+            <option value="2">2</option>
+            <option value="4">4</option>
+            <option value="6">6</option>
+            <option value="8">8</option>
+          </select>
+        </div>
+        <div class="btn-group float-right">
+          <button *counter="let page of pageCount" class="btn btn-light ml-1" (click)="changePage(page)" [class.active]="page == selectedPage">
+            {{ page }}</button>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

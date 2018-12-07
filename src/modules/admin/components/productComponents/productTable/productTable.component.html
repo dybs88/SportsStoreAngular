@@ -5,6 +5,9 @@
       <ss-adminmenu></ss-adminmenu>
     </div>
     <div class="col-10">
+      <div class="btn-group mb-1">
+        <button class="btn btn-primary" [routerLink]="['/admin/products/create']">Dodaj</button>
+      </div>
       <table class="table table-bordered table-striped">
         <thead>
           <tr>
@@ -16,7 +19,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let product of products">
+          <tr *ngFor="let product of getProducts()">
             <td>{{ product.id }}</td>
             <td>{{ product.name }}</td>
             <td>{{ product.price | currency: "PLN ": "symbol":"2.2-2" }}</td>
@@ -28,6 +31,21 @@
           </tr>
         </tbody>
       </table>
+      <div class="form-group">
+        <div class="form-inline text-dark float-left mr-1">
+          Pozycji na stronie:
+          <select class="form-control ml-1" [value]="maxPageSize" (change)="changePageSize($event.target.value)">
+            <option value="2">2</option>
+            <option value="4">4</option>
+            <option value="6">6</option>
+            <option value="8">8</option>
+          </select>
+        </div>
+        <div class="btn-group float-right">
+          <button *counter="let page of pageCount" class="btn btn-light ml-1" (click)="changePage(page)" [class.active]="page == selectedPage">
+            {{ page }}</button>
+        </div>
+      </div>
     </div>
   </div>
 </div>

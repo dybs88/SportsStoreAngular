@@ -22,6 +22,7 @@ export class OrderComponent {
 
   submitOrder(form: NgForm) {
     this.submitted = true;
+    console.log(this.order);
     if (form.valid) {
       this.orderRepo.saveOrder(this.order).subscribe(order => {
         this.order.clear();

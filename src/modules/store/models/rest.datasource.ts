@@ -36,7 +36,10 @@ export class RestDataSource {
   }
 
   getOrders(): Observable<Order[]> {
-    return this.http.get<Order[]>(this.baseUrl + "orders");
+    let orders = this.http.get<Order[]>(`${this.baseUrl}orders/`, this.getOptions());
+    console.log("restDataSource");
+    orders.subscribe(sub => console.log(sub));
+    return orders;
   }
 
   saveOrder(order: Order): Observable<Order> {

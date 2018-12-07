@@ -8,20 +8,14 @@ import { Order } from "src/modules/store/models/order/order.model";
 })
 export class OrderRepository {
   private orders: Order[] = [];
-  private loaded: boolean = false;
 
-  constructor(private dataSource: RestDataSource) { }
-
-  loadOrders() {
-    this.loaded = true;
+  constructor(private dataSource: RestDataSource) {
     this.dataSource.getOrders()
-      .subscribe(orders => this.orders = orders);
+      .subscribe(data => this.orders = data);
   }
 
   getOrders(): Order[] {
-    if (!this.loaded) {
-      this.loadOrders();
-    }
+    console.log(this.orders);
     return this.orders;
   }
 

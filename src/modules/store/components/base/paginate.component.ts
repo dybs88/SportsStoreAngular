@@ -1,4 +1,4 @@
-export class PaginateComponent {
+export class PaginateComponent<T> {
   protected maxPageSize = 8;
   protected selectedPage;
 
@@ -6,7 +6,7 @@ export class PaginateComponent {
     this.selectedPage = defaultPage;
   }
 
-  paginate(collection: Object[]) {
+  paginate(collection: Array<T>) {
     const pageIndex = (this.selectedPage - 1) * this.maxPageSize;
     return collection.slice(pageIndex, pageIndex + this.maxPageSize);
   }
@@ -19,7 +19,7 @@ export class PaginateComponent {
     this.maxPageSize = newSize;
   }
 
-  getPageCount(collection: Object[]): number {
+  getPageCount(collection: Array<T>): number {
     return Math.ceil(collection.length / this.maxPageSize);
   }
 }
