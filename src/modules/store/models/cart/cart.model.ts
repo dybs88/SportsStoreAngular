@@ -9,7 +9,7 @@ export class Cart {
   public cartPrice: number = 0;
 
   addItem(product: Product, quantity: number = 1) {
-    let item = this.items.find(i => i.product.id === product.id);
+    let item = this.items.find(i => i.product.productID === product.productID);
 
     if (item === undefined) {
       item = new CartItem(product, quantity);
@@ -22,7 +22,7 @@ export class Cart {
   }
 
   updateQuantity(product: Product, quantity: number) {
-    let item = this.items.find(i => i.product.id === product.id);
+    let item = this.items.find(i => i.product.productID === product.productID);
     if (item !== undefined) {
       item.quantity = Number(quantity);
     }
@@ -31,7 +31,7 @@ export class Cart {
   }
 
   removeItem(productId: number) {
-    let index = this.items.findIndex(i => i.product.id === productId);
+    let index = this.items.findIndex(i => i.product.productID === productId);
     this.items.splice(index, 1);
     this.recalculate();
   }
@@ -48,7 +48,7 @@ export class Cart {
 
     this.items.forEach(i => {
       this.itemCount += i.quantity;
-      this.cartPrice += (i.product.price * i.quantity);
+      this.cartPrice += (i.product.grossPrice * i.quantity);
     });
   }
 }

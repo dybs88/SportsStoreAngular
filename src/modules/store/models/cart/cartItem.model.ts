@@ -7,6 +7,6 @@ export class CartItem {
   constructor(public product: Product, public quantity: number) { }
 
   getItemTotal() {
-    return this.product.price * this.quantity;
+    return this.product.grossPrice * this.quantity;
   }
 }

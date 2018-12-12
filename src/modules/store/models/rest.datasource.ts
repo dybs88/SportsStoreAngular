@@ -6,7 +6,8 @@ import { Order } from "./order/order.model";
 import { map } from "rxjs/operators";
 
 const PROTOCOL = "http";
-const PORT = "3500";
+const PORT = "45000";
+const api = "api";
 
 @Injectable({
   providedIn: "root"
@@ -16,7 +17,7 @@ export class RestDataSource {
   auth_token: string;
 
   constructor(private http: HttpClient) {
-    this.baseUrl = `${PROTOCOL}://${location.hostname}:${PORT}/`;
+    this.baseUrl = `${PROTOCOL}://${location.hostname}:${PORT}/${api}/`;
   }
 
   getProducts(): Observable<Product[]> {
@@ -28,7 +29,7 @@ export class RestDataSource {
   }
 
   updateProduct(product: Product): Observable<Product> {
-    return this.http.put<Product>(`${this.baseUrl}products/${product.id}`, product, this.getOptions());
+    return this.http.put<Product>(`${this.baseUrl}products/${product.productID}`, product, this.getOptions());
   }
 
   deleteProduct(productId: number): Observable<Product> {

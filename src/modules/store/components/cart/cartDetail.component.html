@@ -20,10 +20,10 @@
           <input type="text" [value]="cartItem.quantity" (change)="cart.updateQuantity(cartItem.product, $event.target.value)" />
         </td>
         <td>{{ cartItem.product.name }}</td>
-        <td>{{ cartItem.product.price | currency: "PLN " : "symbol": "2.2-2" }}</td>
+        <td>{{ cartItem.product.grossPrice | currency: "PLN " : "symbol": "2.2-2" }}</td>
         <td>{{ cartItem.getItemTotal() | currency: "PLN " : "symbol": "2.2-2" }}</td>
         <td>
-          <button class="btn btn-danger btn-sm" (click)="cart.removeItem(cartItem.product.id)">Usuń</button>
+          <button class="btn btn-danger btn-sm" (click)="cart.removeItem(cartItem.product.productID)">Usuń</button>
         </td>
       </tr>
     </tbody>

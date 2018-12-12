@@ -26,22 +26,22 @@ export class ProductRepository {
   }
 
   getProduct(id: number): Product {
-    return this.products.find(p => p.id === id);
+    return this.products.find(p => p.productID === id);
   }
 
   saveProduct(product: Product) {
-    if (product.id === null || product.id === 0) {
+    if (product.productID === null || product.productID === 0) {
       this.dataSource.saveProduct(product)
         .subscribe(p => this.products.push(p));
     } else {
       this.dataSource.updateProduct(product)
-        .subscribe(p => this.products.splice(this.products.findIndex(i => i.id === product.id), 1, p));
+        .subscribe(p => this.products.splice(this.products.findIndex(i => i.productID === product.productID), 1, p));
     }
   }
 
   deleteProduct(id: number) {
     this.dataSource.deleteProduct(id)
-      .subscribe(p => this.products.splice(this.products.findIndex(i => i.id === id), 1));
+      .subscribe(p => this.products.splice(this.products.findIndex(i => i.productID === id), 1));
   }
 
   getCategories(): string[] {
