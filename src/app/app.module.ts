@@ -8,7 +8,7 @@ import { StoreComponent } from 'src/modules/store/store.component';
 import { CartDetailComponent } from 'src/modules/store/components/cart/cartDetail.component';
 import { OrderComponent } from 'src/modules/store/components/order/order.component';
 import { StoreFirstGuard } from './storeFirst.guard';
-import { RestDataSource } from 'src/modules/store/models/rest.datasource';
+import { RestDataSource } from 'src/dal/rest/rest.datasource';
 import { AuthService } from 'src/services/auth.service';
 import { ProductRepository } from 'src/dal/product.repository';
 import { OrderRepository } from 'src/dal/order.repository';

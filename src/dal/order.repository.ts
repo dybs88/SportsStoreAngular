@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { RestDataSource } from "src/modules/store/models/rest.datasource";
+import { RestDataSource } from "src/dal/rest/rest.datasource";
 import { Observable } from "rxjs";
 import { Order } from "src/modules/store/models/order/order.model";
 
