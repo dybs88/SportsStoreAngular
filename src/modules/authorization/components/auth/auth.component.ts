@@ -2,6 +2,7 @@ import { Component } from "@angular/core";
 import { Router } from "@angular/router";
 import { NgForm } from "@angular/forms";
 import { AuthService } from "../../../../services/auth.service";
+import { User } from "src/modules/admin/models/user.model";
 
 @Component({
   templateUrl: "auth.component.html"
@@ -16,8 +17,8 @@ export class AuthComponent {
 
   authenticate(form: NgForm) {
     if (form.valid) {
-      this.authService.authenticate(this.username, this.password).subscribe((response) => {
-        if (response) {
+      this.authService.authenticate(new User(this.username, this.password)).subscribe((response) => {
+        if (response.success) {
           this.router.navigateByUrl("/admin/main");
         } else {
           this.errorMessage = "Niepoprawne dane";

@@ -4,6 +4,7 @@ import { Observable } from "rxjs";
 import { Product } from "../../modules/store/models/product/product.model";
 import { Order } from "../../modules/store/models/order/order.model";
 import { map } from "rxjs/operators";
+import { User } from "src/modules/admin/models/user.model";
 
 const PROTOCOL = "http";
 const PORT = "45000";
@@ -55,11 +56,11 @@ export class RestDataSource {
     return this.http.delete<Order>(`${this.baseUrl}/orders/${orderId}`, this.getOptions());
   }
 
-  authenticate(user: string, pass: string): Observable<boolean> {
-    return this.http.post<any>(this.baseUrl + "login", { name: user, password: pass })
+  authenticate(user: User): Observable<boolean> {
+    return this.http.post<any>(`${this.baseUrl}auth/login`, { userName: user.UserName, password: user.Password })
       .pipe(map(response => {
         this.auth_token = response.success ? response.token : null;
-        return response.success;
+        return response;
       }));
   }
 

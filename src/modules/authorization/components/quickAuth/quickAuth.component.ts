@@ -2,6 +2,7 @@ import { Component } from "@angular/core";
 import { Router } from "@angular/router";
 import { AuthService } from "../../../../services/auth.service";
 import { NgForm } from "@angular/forms";
+import { User } from "src/modules/admin/models/user.model";
 
 @Component({
   selector: "ss-quickauth",
@@ -17,9 +18,9 @@ export class QuickAuthComponent {
 
   authenticate(form: NgForm) {
     if (form.valid) {
-      this.authService.authenticate(this.username, this.password)
+      this.authService.authenticate(new User(this.username, this.password))
         .subscribe(response => {
-          if (response) {
+          if (response.success) {
             this.router.navigateByUrl("/admin/main");
           } else {
             this.router.navigateByUrl("/auth");

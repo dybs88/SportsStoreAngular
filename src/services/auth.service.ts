@@ -1,13 +1,14 @@
 import { Injectable } from "@angular/core";
 import { RestDataSource } from "src/dal/rest/rest.datasource";
 import { Observable } from "rxjs";
+import { User } from "src/modules/admin/models/user.model";
 
 @Injectable()
 export class AuthService {
   constructor(private dataSource: RestDataSource) { }
 
-  authenticate(username: string, pass: string): Observable<boolean> {
-    return this.dataSource.authenticate(username, pass);
+  authenticate(user: User): Observable<any> {
+    return this.dataSource.authenticate(user);
   }
 
   get authenticated(): boolean {
