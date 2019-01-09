@@ -1,8 +1,8 @@
 import { Component } from "@angular/core";
 import { ProductRepository } from "src/dal/product.repository";
 import { Router, ActivatedRoute } from "@angular/router";
-import { Product } from "src/modules/store/models/product/product.model";
 import { NgForm } from "@angular/forms";
+import { Product } from "src/modules/common/models/product/product.model";
 
 @Component({
   templateUrl: "editProduct.component.html"

@@ -1,5 +1,5 @@
 import { Component } from "@angular/core";
-import { Cart } from "../../models/cart/cart.model";
+import { Cart } from "src/modules/common/models/cart/cart.model";
 
 @Component({
   templateUrl: "cartDetail.component.html"

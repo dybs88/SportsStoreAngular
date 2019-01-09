@@ -12,6 +12,8 @@ import { RestDataSource } from 'src/dal/rest/rest.datasource';
 import { AuthService } from 'src/services/auth.service';
 import { ProductRepository } from 'src/dal/product.repository';
 import { OrderRepository } from 'src/dal/order.repository';
+import { SsCommonModule } from 'src/modules/common/ss.common.module';
+import { SessionStorage } from './infrastructure/session.storage';
 
 @NgModule({
   declarations: [
@@ -29,7 +31,7 @@ import { OrderRepository } from 'src/dal/order.repository';
       { path: "**", redirectTo: "/store" }
     ])
   ],
-  providers: [StoreFirstGuard, RestDataSource, AuthService, ProductRepository, OrderRepository],
+  providers: [StoreFirstGuard, RestDataSource, SessionStorage, AuthService, ProductRepository, OrderRepository],
   bootstrap: [AppComponent],
   schemas: [RouterModule]
 })

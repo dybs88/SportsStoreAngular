@@ -1,7 +1,7 @@
 import { Component } from "@angular/core";
 import { OrderRepository } from "src/dal/order.repository";
 import { NgForm } from "@angular/forms";
-import { Order } from "../../models/order/order.model";
+import { Order } from "src/modules/common/models/order/order.model";
 
 @Component({
   templateUrl: "order.component.html",

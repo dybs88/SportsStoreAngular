@@ -2,7 +2,7 @@ import { Component } from "@angular/core";
 import { Router } from "@angular/router";
 import { NgForm } from "@angular/forms";
 import { AuthService } from "../../../../services/auth.service";
-import { User } from "src/modules/admin/models/user.model";
+import { User } from "src/modules/common/models/user/user.model";
 
 @Component({
   templateUrl: "auth.component.html"

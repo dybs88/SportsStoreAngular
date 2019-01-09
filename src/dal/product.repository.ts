@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { RestDataSource } from 'src/dal/rest/rest.datasource';
-import { Product } from 'src/modules/store/models/product/product.model';
+import { Product } from 'src/modules/common/models/product/product.model';
 
 @Injectable({
   providedIn: "root"

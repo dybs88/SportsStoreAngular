@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import { ProductRepository } from 'src/dal/product.repository';
 import { Router } from '@angular/router';
-import { Cart } from './models/cart/cart.model';
-import { Product } from './models/product/product.model';
 import { PaginateComponent } from './components/base/paginate.component';
+import { Product } from '../common/models/product/product.model';
+import { Cart } from '../common/models/cart/cart.model';
 
 @Component({
   selector: 'store',

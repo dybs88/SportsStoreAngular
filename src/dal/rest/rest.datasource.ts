@@ -1,10 +1,10 @@
 import { Injectable } from "@angular/core";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Observable } from "rxjs";
-import { Product } from "../../modules/store/models/product/product.model";
-import { Order } from "../../modules/store/models/order/order.model";
 import { map } from "rxjs/operators";
-import { User } from "src/modules/admin/models/user.model";
+import { User } from "src/modules/common/models/user/user.model";
+import { Product } from "src/modules/common/models/product/product.model";
+import { Order } from "src/modules/common/models/order/order.model";
 
 const PROTOCOL = "http";
 const PORT = "45000";

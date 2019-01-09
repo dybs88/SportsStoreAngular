@@ -1,7 +1,7 @@
 import { Component } from "@angular/core";
-import { Order } from "src/modules/store/models/order/order.model";
 import { OrderRepository } from "src/dal/order.repository";
 import { PaginateComponent } from "src/modules/store/components/base/paginate.component";
+import { Order } from "src/modules/common/models/order/order.model";
 
 @Component({
   templateUrl: "orderTable.component.html"

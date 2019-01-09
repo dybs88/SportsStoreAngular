@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core";
 import { RestDataSource } from "src/dal/rest/rest.datasource";
 import { Observable } from "rxjs";
-import { User } from "src/modules/admin/models/user.model";
+import { User } from "src/modules/common/models/user/user.model";
 
 @Injectable()
 export class AuthService {

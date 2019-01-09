@@ -1,13 +1,13 @@
 import { NgModule } from "@angular/core";
 import { RouterModule } from "@angular/router";
-import { StoreModelModule } from "../store/models/store.model.module";
 import { CartSummaryComponent } from "../store/components/cart/cartSummary.component";
 import { NavbarComponent } from "./navbar.component";
 import { AuthorizationModule } from "../authorization/auth.module";
 import { CommonModule } from "@angular/common";
+import { SsCommonModule } from "../common/ss.common.module";
 
 @NgModule({
-  imports: [StoreModelModule, RouterModule, CommonModule, AuthorizationModule],
+  imports: [SsCommonModule, RouterModule, CommonModule, AuthorizationModule],
   declarations: [NavbarComponent, CartSummaryComponent],
   exports: [NavbarComponent]
 })

@@ -4,14 +4,14 @@ import { QuickAuthComponent } from "./components/quickAuth/quickAuth.component";
 import { CommonModule } from "@angular/common";
 import { FormsModule } from "@angular/forms";
 import { RouterModule } from "@angular/router";
-import { StoreModelModule } from "../store/models/store.model.module";
+import { SsCommonModule } from "../common/ss.common.module";
 
 let routing = RouterModule.forChild([
   { path: "auth", component: AuthComponent }
 ]);
 
 @NgModule({
-  imports: [CommonModule, FormsModule, routing, StoreModelModule],
+  imports: [CommonModule, FormsModule, routing, SsCommonModule],
   declarations: [AuthComponent, QuickAuthComponent],
   providers: [],
   exports: [QuickAuthComponent]

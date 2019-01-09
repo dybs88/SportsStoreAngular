@@ -1,7 +1,7 @@
 import { Component } from "@angular/core";
 import { ProductRepository } from "src/dal/product.repository";
-import { Product } from "src/modules/store/models/product/product.model";
 import { PaginateComponent } from "src/modules/store/components/base/paginate.component";
+import { Product } from "src/modules/common/models/product/product.model";
 
 @Component({
   templateUrl: "productTable.component.html"
