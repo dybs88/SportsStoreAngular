@@ -25,6 +25,6 @@ export class ProductTableComponent extends PaginateComponent<Product> {
   }
 
   deleteProduct(productId: number) {
-
+    this.productRepo.deleteProduct(productId);
   }
 }

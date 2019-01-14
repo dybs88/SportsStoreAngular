@@ -16,9 +16,13 @@ export class QuickAuthComponent {
 
   constructor(private router: Router, private authService: AuthService) { }
 
+  get authenticated(): boolean {
+    return this.authService.authenticated;
+  }
+
   authenticate(form: NgForm) {
     if (form.valid) {
-      this.authService.authenticate(new User(this.username, this.password))
+      this.authService.authenticate(this.username, this.password)
         .subscribe(response => {
           if (response.success) {
             this.router.navigateByUrl("/admin/main");
@@ -29,12 +33,8 @@ export class QuickAuthComponent {
     }
   }
 
-  get authenticated(): boolean {
-    return this.authService.authenticated;
-  }
-
   logout() {
-    this.authService.clear();
+    this.authService.logout();
     this.router.navigateByUrl("/");
   }
 }

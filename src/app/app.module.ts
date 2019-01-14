@@ -12,8 +12,11 @@ import { RestDataSource } from 'src/dal/rest/rest.datasource';
 import { AuthService } from 'src/services/auth.service';
 import { ProductRepository } from 'src/dal/product.repository';
 import { OrderRepository } from 'src/dal/order.repository';
-import { SsCommonModule } from 'src/modules/common/ss.common.module';
 import { SessionStorage } from './infrastructure/session.storage';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { JwtInterceptor } from './infrastructure/interceptors/jwt.interceptor';
+import { ErrorInterceptor } from './infrastructure/interceptors/error.interceptor';
+import { NavbarModule } from 'src/modules/navbar/navbar.module';
 
 @NgModule({
   declarations: [
@@ -21,6 +24,7 @@ import { SessionStorage } from './infrastructure/session.storage';
   ],
   imports: [
     BrowserModule,
+    NavbarModule,
     StoreModule,
     RouterModule.forRoot([
       { path: "store", component: StoreComponent, canActivate: [StoreFirstGuard] },
@@ -31,7 +35,9 @@ import { SessionStorage } from './infrastructure/session.storage';
       { path: "**", redirectTo: "/store" }
     ])
   ],
-  providers: [StoreFirstGuard, RestDataSource, SessionStorage, AuthService, ProductRepository, OrderRepository],
+  providers: [StoreFirstGuard, RestDataSource, SessionStorage, AuthService, ProductRepository, OrderRepository,
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true }],
   bootstrap: [AppComponent],
   schemas: [RouterModule]
 })

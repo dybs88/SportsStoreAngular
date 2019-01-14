@@ -30,13 +30,7 @@ export class ProductRepository {
   }
 
   saveProduct(product: Product) {
-    if (product.productID === null || product.productID === 0) {
-      this.dataSource.saveProduct(product)
-        .subscribe(p => this.products.push(p));
-    } else {
-      this.dataSource.updateProduct(product)
-        .subscribe(p => this.products.splice(this.products.findIndex(i => i.productID === product.productID), 1, p));
-    }
+    this.dataSource.saveProduct(product);
   }
 
   deleteProduct(id: number) {

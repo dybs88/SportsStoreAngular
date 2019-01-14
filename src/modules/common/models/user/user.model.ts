@@ -1,6 +1,9 @@
 export class User {
   constructor(
-    public UserName: string,
-    public Password: string,
-    public email?: string) { }
+    public userName: string,
+    public token: string,
+    public email: string,
+    public firstName?: string,
+    public lastName?: string,
+    public phoneNumber?: string) { }
 }

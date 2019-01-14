@@ -6,7 +6,7 @@ import { Product } from '../common/models/product/product.model';
 import { Cart } from '../common/models/cart/cart.model';
 
 @Component({
-  selector: 'store',
+  selector: 'ss-store',
   templateUrl: 'store.component.html'
 })
 export class StoreComponent extends PaginateComponent<Product> {

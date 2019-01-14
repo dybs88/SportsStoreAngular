@@ -17,7 +17,7 @@ export class EditProductComponent {
     this.mode = activeRoute.snapshot.params["mode"];
 
     if (this.mode === "edit") {
-      this.product = productRepo.getProduct(parseInt(activeRoute.snapshot.params["id"], 36));
+      this.product = productRepo.getProduct(parseInt(activeRoute.snapshot.params["id"], 10));
     }
   }
 

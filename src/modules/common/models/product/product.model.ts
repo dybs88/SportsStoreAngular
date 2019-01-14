@@ -6,6 +6,7 @@ export class Product {
     public category?: string,
     public description?: string,
     public netPrice?: number,
-    public grossPrice?: number
+    public grossPrice?: number,
+    public vatRateId: number = 1
   ) { }
 }
